@@ -55,9 +55,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, "/students/**").hasRole("BASE_USER")
                 .antMatchers(HttpMethod.DELETE, "/students/**").hasRole("ADMIN_USER")
                 .antMatchers(HttpMethod.POST, "/students/**").hasAnyRole("BASE_USER", "ADMIN_USER")
-                .anyRequest().authenticated();
-        // .and()
-        // .csrf().disable();
+                .anyRequest().authenticated().and().csrf().disable();;
     }
 
 }
