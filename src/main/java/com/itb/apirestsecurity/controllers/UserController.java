@@ -53,8 +53,7 @@ public class UserController {
         for (User user : res) {
             aux.add(new UserConsultDTO(user.getUsername(), user.getAvatar(), user.getRol()));
         }
-        if (res.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        } else return ResponseEntity.ok(aux);
+        if (res != null) return ResponseEntity.ok(res);
+        else return ResponseEntity.notFound().build();
     }
 }
